@@ -12,6 +12,7 @@ use Stichoza\GoogleTranslate\GoogleTranslate;
 use Illuminate\Support\Str;
 use Spatie\Activitylog\Models\Activity;
 
+
 function authUserId(){
     return Auth::id();
  }
@@ -145,7 +146,7 @@ function get_pdf($pdf)
 
 // }
 
-function getNewsImage($image, $defaultImage = 'thumb_652D6AC290510.jpg')
+function getNewsImage($image, $defaultImage = 'thumb_652D6AC290510.png')
 {
     $imagePath = 'public/news_gallery/' . $image;
 
@@ -171,7 +172,7 @@ function getNewsImage($image, $defaultImage = 'thumb_652D6AC290510.jpg')
 //     return asset('uploads/thumbnail/'.$value);
 // }
 
-function getThumbnail($value, $defaultImage = 'thumb_652D6AC290510.jpg') {
+function getThumbnail($value, $defaultImage = 'thumb_652D6AC290510.png') {
     // Check if the value is already a complete URL
     if (str_starts_with($value, 'https')) {
         return $value;
@@ -272,3 +273,25 @@ if (! function_exists('logActivity')) {
             ->log($description);
     }
 }
+
+
+function translateText($text, $targetLanguage)
+{
+    $translator = new GoogleTranslate();
+    $translator->setTarget($targetLanguage);
+    return $translator->translate($text);
+}
+
+
+//  translateText($this->name, 'hi') ?? ''; 
+//  translateText($this->name, 'pa') ?? '';
+
+  function limitWords($string, $limit = 20, $end = '...')
+        {
+            $words = preg_split('/\s+/', $string, $limit + 1);
+            if (count($words) > $limit) {
+                array_pop($words);
+                $string = implode(' ', $words) . $end;
+            }
+            return $string;
+        }
