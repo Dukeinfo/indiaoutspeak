@@ -82,10 +82,10 @@ Route::controller(FronendController::class)->group(function () {
 
 
 Livewire::setScriptRoute(function ($handle) {
-    return Route::get('/livewire/livewire.js', $handle);
+    return Route::get('/laravel/livewire/livewire.js', $handle);
 });
 Livewire::setUpdateRoute(function ($handle) {
-    return Route::post('/livewire/update', $handle);
+    return Route::post('/laravel/livewire/update', $handle);
 });
 Route::middleware([
     'auth:sanctum',
