@@ -91,16 +91,16 @@
                @endif
                   
                     <p class="mb-3"><i class="fa fa-envelope fa-fw mr-2"></i> 
-                        <a href="mailto:{!! $getFooteraddress->email ??  'newskhabarwaale@gmail.com'!!}" 
-                         class="cl11 hov-cl10 trans-03"> {!! $getFooteraddress->email ??  'newskhabarwaale@gmail.com'!!}</a>
+                        <a href="mailto:{!! $getFooteraddress->email ??  'indiaoutspeak@gmail.com'!!}" 
+                         class="cl11 hov-cl10 trans-03"> {!! $getFooteraddress->email ??  'indiaoutspeak@gmail.com'!!}</a>
                     </p>
                     <p class="mb-3"><i class="fa fa-mobile-alt fa-fw mr-2"></i>
                         <a href="tel:{{ $getFooteraddress->phone ?? '+91-9815481679' }}" class="cl11 hov-cl10 trans-03">{{ $getFooteraddress->phone ?? '+91-9815481679' }}</a>
 
                         </p>
                     <p class="mb-3"><i class="fa fa-globe fa-fw mr-2"></i> 
-                        <a href="{!! $getFooteraddress->website ??  'www.khabarwaale.com'!!}" 
-                         class="cl11 hov-cl10 trans-03">{!! $getFooteraddress->website ??  'www.khabarwaale.com'!!}</a></p>
+                        <a href="{!! $getFooteraddress->website ??  'www.indiaoutspeak.com'!!}" 
+                         class="cl11 hov-cl10 trans-03">{!! $getFooteraddress->website ??  'www.indiaoutspeak.com'!!}</a></p>
                 </address>
 
                 <div class="size-h-3 flex-s-c">

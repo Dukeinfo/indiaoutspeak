@@ -174,7 +174,7 @@
     <!--  -->
     <div class="wrap-logo no-banner container">
         <!-- Logo desktop -->
-        <div class="logo">
+        <div class="logo px-5">
             <a href="{{url('/')}}" ><img src="{{asset('assets/images/logo.png')}}" alt="LOGO"></a>
         </div>
     </div>

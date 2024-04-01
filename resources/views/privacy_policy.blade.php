@@ -37,13 +37,13 @@
                                     In any case, if you would prefer that we do not use your Information to market or promote our products and Services to you, please either (i) tick the relevant box on the form through which we collect your Information (for example, the registration form); (ii) unsubscribe from our electronic communications using the method indicated in the relevant communication; or (iii) contact us at the contact details set out below:<br><br>
             
                         
-                                    All our content developed under the roof of KhabarwaaleOffice ,not claim of copy to other part.<br>
+                                    All our content developed under the roof of indiaoutspeakOffice ,not claim of copy to other part.<br>
                                     Name of Owner Parminder Singh Jatpuri<br>
                                     SCO 86-87- Sector 45 Chandigarh<br>
                                     Contact No 9815481679<br>
                                     Studio Address SCO 64 Phase ii Mohali<br>
                                     Email ID psjatpuri@gmail.com<br>
-                                    www.khabarwaale.com which is empanel by the Government   of Punjab (INDIA)<br>
+                                    www.indiaoutspeak.com which is empanel by the Government   of Punjab (INDIA)<br>
                                      
                                     •	Proof of Reading and Verified by the Editor<br>
                                     •	3 year date on server rather the backup from opening to current.<br>
