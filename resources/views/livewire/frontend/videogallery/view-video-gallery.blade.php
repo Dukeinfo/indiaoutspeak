@@ -35,7 +35,7 @@
                             </div>
                             <div class="card-body">
                                 <h5 class="card-title">
-                                    <a href="https://www.youtube.com/watch?v={{$videprecord->video_url}}" title="{{$videprecord->video_title_en ?? ''}}" target="_blank">
+                                    <a href="{{$videprecord->video_url}}" title="{{$videprecord->video_title_en ?? ''}}" target="_blank">
                                         {!! Str::words($videprecord->video_title_en, 8, '...') ?? "NA" !!}
                                     </a>
                                 </h5>
