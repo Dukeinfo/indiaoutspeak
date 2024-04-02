@@ -6,8 +6,13 @@
                 <div class="col-md-4 mb-4">
                     <div class="video-container">
                         <!-- Embed YouTube video using iframe -->
-                        @if(Str::startsWith($videprecord->video_url, 'https://'))
-                        <iframe width="100%" height="200" src="{{$videprecord->video_url}}" frameborder="0" allowfullscreen></iframe>
+                        @if(Str::startsWith($videprecord->video_url, 'https://collect'))
+                                <video controls width="640" height="360">
+                                    <source src="{{$videprecord->video_url}}" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                        @elseif( Str::startsWith($videprecord->video_url, 'https://fb'))
+                                <iframe src="https://www.facebook.com/plugins/video.php?href={{$livetvnews->video_url}}/&show_text=0&width=560" width="560" height="315" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
                         @else
                         <iframe width="100%" height="200" src="https://www.youtube.com/embed/{{$videprecord->video_url}}?rel=0" frameborder="0" allowfullscreen></iframe>
                         @endif
