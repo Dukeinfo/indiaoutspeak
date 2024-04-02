@@ -10,7 +10,7 @@
                            
                             <iframe width="100%" height="200" src="https://www.youtube.com/embed/{{$videprecord->video_url}}?rel=0" frameborder="0" allowfullscreen></iframe>
                         @else 
-                            <img src="{{ asset('assets/images/video-01.jpg')}}" alt="Image">
+                            <img src="{{ asset('assets/images/video-01.jpg')}}" alt="Image" width="100%" height="200">
                         @endif
 
                       
