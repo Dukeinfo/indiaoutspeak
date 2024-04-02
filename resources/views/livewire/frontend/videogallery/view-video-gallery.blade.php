@@ -6,7 +6,12 @@
                 <div class="col-md-4 mb-4">
                     <div class="video-container">
                         <!-- Embed YouTube video using iframe -->
+                        @if(Str::startsWith($videprecord->video_url, 'https://'))
+                        <iframe width="100%" height="200" src="{{$videprecord->video_url}}" frameborder="0" allowfullscreen></iframe>
+                        @else
                         <iframe width="100%" height="200" src="https://www.youtube.com/embed/{{$videprecord->video_url}}?rel=0" frameborder="0" allowfullscreen></iframe>
+                        @endif
+
                       
                     </div>
                     <div class="video-info">
