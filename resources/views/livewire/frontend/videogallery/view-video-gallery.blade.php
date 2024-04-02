@@ -6,14 +6,8 @@
                 <div class="col-md-4 mb-4">
                     <div class="video-container">
                         <!-- Embed YouTube video using iframe -->
-                        @if(Str::startsWith($videprecord->video_url, 'https://collect'))
-                                <video controls width="100%" height="200" >
-                                    <source src="{{$videprecord->video_url}}" type="video/mp4">
-                                    Your browser does not support the video tag.
-                                </video>
-                        @elseif( Str::startsWith($videprecord->video_url, 'https://www.facebook.com'))
-                                <iframe src="{{$videprecord->video_url}}" width="100%" height="200" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
-                        @else
+                        @if(!Str::startsWith($videprecord->video_url, 'https://'))
+                           
                         <iframe width="100%" height="200" src="https://www.youtube.com/embed/{{$videprecord->video_url}}?rel=0" frameborder="0" allowfullscreen></iframe>
                         @endif
 
@@ -35,9 +29,15 @@
                             </div>
                             <div class="card-body">
                                 <h5 class="card-title">
+                                    @if(Str::startsWith($videprecord->video_url, 'https://'))
                                     <a href="{{$videprecord->video_url}}" title="{{$videprecord->video_title_en ?? ''}}" target="_blank">
                                         {!! Str::words($videprecord->video_title_en, 8, '...') ?? "NA" !!}
                                     </a>
+                                    @else
+                                    <a href="https://www.youtube.com/watch?v={{$videprecord->video_url}}" title="{{$videprecord->video_title_en ?? ''}}" target="_blank">
+                                        {!! Str::words($videprecord->video_title_en, 8, '...') ?? "NA" !!}
+                                    </a>
+                                    @endif
                                 </h5>
                            
                             </div>
