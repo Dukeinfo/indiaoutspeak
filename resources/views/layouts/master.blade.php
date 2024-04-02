@@ -182,7 +182,7 @@
                         applicationServerKey: vapidPublicKey
                     }).then((subscription) => {
                         // subscription successful
-                        fetch("/api/push-subscribe", {
+                        fetch("/laravel/api/push-subscribe", {
                             method: "post",
                             body: JSON.stringify(subscription)
                         })
