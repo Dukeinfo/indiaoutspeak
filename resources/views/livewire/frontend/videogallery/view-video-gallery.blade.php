@@ -11,7 +11,7 @@
                                     <source src="{{$videprecord->video_url}}" type="video/mp4">
                                     Your browser does not support the video tag.
                                 </video>
-                        @elseif( Str::startsWith($videprecord->video_url, 'https://fb'))
+                        @elseif( Str::startsWith($videprecord->video_url, 'https://www.facebook.com'))
                                 <iframe src="{{$videprecord->video_url}}" width="100%" height="200" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
                         @else
                         <iframe width="100%" height="200" src="https://www.youtube.com/embed/{{$videprecord->video_url}}?rel=0" frameborder="0" allowfullscreen></iframe>
