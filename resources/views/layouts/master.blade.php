@@ -170,6 +170,11 @@
         Notification.requestPermission().then((permission) => {
             if (permission === 'granted') {
                 // get service worker
+                if (!vapidPublicKey) {
+                // Show SweetAlert for invalid vapidPublicKey
+                swal("Error", "Public Key is not valid. Please check your environment configuration.", "error");
+                return;
+            }
                 navigator.serviceWorker.ready.then((sw) => {
                     // subscribe
                     sw.pushManager.subscribe({
