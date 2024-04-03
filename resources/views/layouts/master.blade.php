@@ -1,23 +1,11 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-
 <head>
     <meta name="csrf-token" content="{{ csrf_token() }}" />
     <meta http-equiv="content-type" content="text/html;charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     {!! SEO::generate() !!}
-    {{-- google --}}
-    <meta name="google-site-verification" content="DhqXkLgsZA08lmkms8yHxN2nZn9GOvz4hSVV8NPp3EM" />
-    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-964426815"></script> 
-    <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'AW-964426815'); 
-    </script>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-118451473-1"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'UA-118451473-1');
-    </script>
+    
         @php
             $headerSnippets = App\Models\SeoHeadersnippet::where('status' ,'Active')->whereNull('deleted_at')->get();
         @endphp
