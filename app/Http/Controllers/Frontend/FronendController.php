@@ -80,6 +80,10 @@ class FronendController extends Controller
         return view('privacy_policy');
     }
 
+    public function contact_us(){
+        return view('contact_us');
+
+    }
     public function archive_page()
     {
         // dd($getArchiveDate->archived_at);

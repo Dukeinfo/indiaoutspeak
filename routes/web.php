@@ -77,6 +77,8 @@ Route::controller(FronendController::class)->group(function () {
     Route::get('/privacy-policy', 'privacyPolicy')->name('privacyPolicy');
     Route::get('/reporter-news',  'reporterNews')->name('home.reporter_news');
     Route::get('/subscriber/verify/{token}/{email}', 'verify')->name('subscriber_verify');
+    Route::get('/contact-us',  'contact_us')->name('home.contact_us');
+
 
 });
 
