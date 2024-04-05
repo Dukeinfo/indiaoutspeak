@@ -72,21 +72,25 @@
 
                 @if (session()->get('language') === 'hindi')
                 <p class="mb-3"><i class="fa fa-map-marker-alt fa-fw mr-2"></i> 
-                     सी-2, एससीओ 86-87, टीएफ, सेक्टर 45-सी, चंडीगढ़
+                    {!! $getFooteraddress->address ??  'Address'!!}
+
                     </p>
                @elseif (session()->get('language') === 'english')
                     <p class="mb-3"><i class="fa fa-map-marker-alt fa-fw mr-2"></i> 
-                        {!! $getFooteraddress->address ??  'C-2, SCO 86-87, TF, Sector 45-C, Chandigarh'!!}
+                        {!! $getFooteraddress->address ??  'Address'!!}
+
                     </p>
                 @elseif (session()->get('language') === 'punjabi')
                 <p class="mb-3"><i class="fa fa-map-marker-alt fa-fw mr-2"></i> 
 
-                     C-2, SCO 86-87, TF, ਸੈਕਟਰ 45-C, ਚੰਡੀਗੜ੍ਹ
+                    
+                    {!! $getFooteraddress->address ??  'Address'!!}
+
                 </p>
                @elseif (session()->get('language') === 'urdu')
                <p class="mb-3"><i class="fa fa-map-marker-alt fa-fw mr-2"></i> 
 
-                     C-2، SCO 86-87، TF، سیکٹر 45-C، چندی گڑھ
+                {!! $getFooteraddress->address ??  'Address'!!}
                </p>                    
                @endif
                   
