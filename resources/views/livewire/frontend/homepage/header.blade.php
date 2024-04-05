@@ -71,7 +71,7 @@
     <div class="wrap-header-mobile">
         <!-- Logo moblie -->
         <div class="logo-mobile">
-            <a href="{{url('/')}}"><img src="{{asset('assets/images/logo.png')}}" alt="IMG-LOGO"></a>
+            <a href="{{url('/')}}"><img src="{{asset('/public/assets/images/logo.png')}}" alt="IMG-LOGO"></a>
         </div>
         <!-- Button show menu -->
         <div class="btn-show-menu-mobile hamburger hamburger--squeeze m-r--8">
@@ -175,7 +175,7 @@
     <div class="wrap-logo no-banner container">
         <!-- Logo desktop -->
         <div class="logo px-5">
-            <a href="{{url('/')}}" ><img src="{{asset('assets/images/logo.png')}}" alt="LOGO"></a>
+            <a href="{{url('/')}}" ><img src="{{asset('/public/assets/images/logo.png')}}" alt="LOGO"></a>
         </div>
     </div>
     <!-- Desktop -->

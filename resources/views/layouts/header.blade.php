@@ -66,7 +66,7 @@
             <div class="wrap-header-mobile">
                 <!-- Logo moblie -->
                 <div class="logo-mobile">
-                    <a href="{{url('/')}}"><img src="{{asset('assets/images/logo.png')}}" alt="IMG-LOGO"></a>
+                    <a href="{{url('/')}}"><img src="{{asset('public/assets/images/logo.png')}}" alt="IMG-LOGO"></a>
                 </div>
                 <!-- Button show menu -->
                 <div class="btn-show-menu-mobile hamburger hamburger--squeeze m-r--8">
@@ -144,7 +144,7 @@
                     <!-- Menu desktop -->
                     <nav class="menu-desktop">
                         <a class="logo-stick" href="{{url('/')}}">
-                            <img src="{{asset('assets')}}/images/logo.png" alt="LOGO">
+                            <img src="{{asset('/public/assets')}}/images/logo.png" alt="LOGO">
                         </a>
                         <ul class="main-menu justify-content-center">
                             <li class="main-menu-active">
