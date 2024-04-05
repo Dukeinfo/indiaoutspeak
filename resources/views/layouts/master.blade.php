@@ -16,14 +16,14 @@
     {{-- google --}}
     @stack('social-scripts')
 
-    <link rel="apple-touch-icon" sizes="180x180" href="{{asset('assets/images/icons/apple-touch-icon.png')}}">
-    <link rel="icon" type="image/png" sizes="32x32" href="{{asset('assets/images/icons/favicon-32x32.png')}}">
-    <link rel="icon" type="image/png" sizes="16x16" href="{{asset('assets/images/icons/favicon-16x16.png')}}">
-    <link rel="manifest" href="{{asset('assets/images/icons/site.webmanifest')}}">
-    <link rel="mask-icon" href="{{asset('assets/images/icons/safari-pinned-tab.svg')}}" color="#5bbad5">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{asset('/public/assets/images/icons/apple-touch-icon.png')}}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{asset('/public/assets/images/icons/favicon-32x32.png')}}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{asset('/public/assets/images/icons/favicon-16x16.png')}}">
+    <link rel="manifest" href="{{asset('/public/assets/images/icons/site.webmanifest')}}">
+    <link rel="mask-icon" href="{{asset('/public/assets/images/icons/safari-pinned-tab.svg')}}" color="#5bbad5">
     <meta name="msapplication-TileColor" content="#ffc40d">
     <meta name="theme-color" content="#ffffff">
-    <link rel="icon" type="image/png" href="{{asset('assets/images/icons/favicon.png')}}" />
+    <link rel="icon" type="image/png" href="{{asset('/public/assets/images/icons/favicon.png')}}" />
     <link rel="stylesheet" type="text/css" href="{{asset('/public/assets/vendor/bootstrap/css/bootstrap.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('/public/assets/fonts/fontawesome-5.0.8/css/fontawesome-all.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('/public/assets/fonts/iconic/css/material-design-iconic-font.min.css')}}">
@@ -61,11 +61,11 @@
     @livewire('frontend.homepage.tv.live-tv')
 
 
-    <script src="{{asset('assets/vendor/jquery/jquery-3.2.1.min.js')}}"></script>
-    <script src="{{asset('assets/vendor/animsition/js/animsition.min.js')}}"></script>
-    <script src="{{asset('assets/vendor/bootstrap/js/popper.js')}}"></script>
-    <script src="{{asset('assets/vendor/bootstrap/js/bootstrap.min.js')}}"></script>
-    <script src="{{asset('assets/js/main.js')}}"></script>
+    <script src="{{asset('/public/assets/vendor/jquery/jquery-3.2.1.min.js')}}"></script>
+    <script src="{{asset('/public/assets/vendor/animsition/js/animsition.min.js')}}"></script>
+    <script src="{{asset('/public/assets/vendor/bootstrap/js/popper.js')}}"></script>
+    <script src="{{asset('/public/assets/vendor/bootstrap/js/bootstrap.min.js')}}"></script>
+    <script src="{{asset('/public/assets/js/main.js')}}"></script>
 
 @php
     $footerSnippets = App\Models\SeoFootersnippet::where('status' ,'Active')->whereNull('deleted_at')->get();
