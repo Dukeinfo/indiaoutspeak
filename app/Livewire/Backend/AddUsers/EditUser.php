@@ -180,6 +180,8 @@ class EditUser extends Component
             //  dd($assignments);
             $category_ids = array_column($assignments, 'category_id');
             if(isset($category_ids)){
+            $updateuser = User::find($this->userId );
+
                 logActivity(
                     'User',
                     $updateuser,
@@ -192,6 +194,8 @@ class EditUser extends Component
                     'User has been Updated!'
                 );
             }else{
+            $updateuser = User::find($this->userId );
+
                 logActivity(
                     'User',
                     $updateuser,
