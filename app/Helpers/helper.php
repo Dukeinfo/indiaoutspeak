@@ -126,26 +126,6 @@ function get_pdf($pdf)
 }
   
 
-// old helper for get news images
-
-// function getNewsImage($image)
-// {
-//     $imagePath = 'public/news_gallery/' . $image;
-//     if (Storage::exists($imagePath)) {
-//         // Image exists, return its URL
-//         return asset('storage/news_gallery/' . $image);
-//     } 
-//      else if (str_starts_with($image, 'https')) {
-//         return $image;
-//     }
-//     else {
-//         // Image does not exist, return URL of default image
-//         return asset('thumb_652D6AC290510.jpg');
-//     }
-
-
-// }
-
 function getNewsImage($image, $defaultImage = 'thumb_652D6AC290510.png')
 {
     $imagePath = 'public/news_gallery/' . $image;

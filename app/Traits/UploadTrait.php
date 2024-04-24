@@ -16,16 +16,18 @@ trait UploadTrait
         $currentMonth = date('m');
         $currentYear = date('Y');
             // Generate a unique name for the image
-            $file_name =   $currentMonth  .'_'. $currentYear . '_' .strtoupper(uniqid()).'.'.$uploadedFile->getClientOriginalExtension();
-                // Optimize the uploaded image
-        
-        try{
-          $uploadedFile->storeAs($folder,$file_name, $disk);
-
-        } catch (\Exception $e) {
-            // Handle the exception (e.g., log it or display an error message)
-            dd($e->getMessage());
-        }
+            $new_file_name =   $currentMonth  . '_' . $currentYear . '_' . strtoupper(uniqid()) . '.' . 'webp';
+            try{
+            //   $uploadedFile->storeAs($folder,$new_file_name, $disk);
+            $image = Image::make($uploadedFile)->orientate()->encode('webp',70);
+            $filePath = $folder ? $folder . '/' . $new_file_name : $new_file_name;
+            Storage::disk($disk)->put($filePath, $image->stream());
+    
+            } catch (\Exception $e) {
+                // Handle the exception (e.g., log it or display an error message)
+                dd($e->getMessage());
+            }
+             
             // Get the path where you want to save the image and thumbnail
             $directory = public_path('uploads/thumbnail');
    
@@ -33,42 +35,24 @@ trait UploadTrait
             if (!File::exists($directory)) {
                 File::makeDirectory($directory, 0755, true, true);
             }
-            $image = Image::make($uploadedFile);
+            $image = Image::make($uploadedFile)->orientate()->encode('webp');
             // Calculate the new height to maintain the aspect ratio
-            // $thumbnailWidth = 100;
-            // $thumbnailHeight = ($image->height() * $thumbnailWidth) / $image->width();
-            // Resize the image to the thumbnail size
-            // $image->resize($thumbnailWidth, $thumbnailHeight);
-
-            // Generate a thumbnail and save it to the specified directory
                 // Load the image
                 $image = Image::make($uploadedFile);
                 // Log the original image size
-                Log::info('Original Image Size: ' . $image->width() . 'x' . $image->height());
+                // Log::info('Original Image Size: ' . $image->width() . 'x' . $image->height());
 
                 // Create a new instance for the thumbnail
-                $thumbnail = Image::make($uploadedFile)->fit(100, 75);
+                $thumbnail = Image::make($uploadedFile)->fit(100, 75)->orientate()->encode('webp');
 
                 // Log the resized image size
-                Log::info('Resized Image Size: ' . $thumbnail->width() . 'x' . $thumbnail->height());
+                // Log::info('Resized Image Size: ' . $thumbnail->width() . 'x' . $thumbnail->height());
 
                 // Save the thumbnail
-                $thumbnailName = 'thumb_'.$file_name;
+                $thumbnailName = 'thumb_'.$new_file_name;
                 $thumbnail->save($directory.'/'.$thumbnailName);
-                return ['file_name' => $file_name, 'thumbnail_name' => $thumbnailName];
+                return ['file_name' => $new_file_name, 'thumbnail_name' => $thumbnailName];
 
-            // $thumbnailName = 'thumb_'.$file_name;
-            // // Log the original image size
-            // Log::info('Original Image Size: ' . $image->width() . 'x' . $image->height());
-
-            // Image::make($uploadedFile)->fit(100, 75)->save($directory.'/'.$thumbnailName);
-
-            // Log::info('Resized Image Size: ' . $image->width() . 'x' . $image->height());
-
-            // $image->save($directory.'/'. $thumbnailName);
-            // return ['file_name' => $file_name, 'thumbnail_name' => $thumbnailName];
-
-          
          
     }
 
@@ -136,31 +120,24 @@ trait UploadTrait
     }
 
 
+    public function convertToWebP($imagePath, $outputPath)
+    {
+        try {
+            // Open the image using Intervention Image
+            $image = Image::make($imagePath);
+            // Convert the image to WebP format and remove EXIF data
+            $image->orientate()->encode('webp', 75);
+            // Save the converted image
+            Storage::put($outputPath, $image->stream());
+            // Unlink (delete) the original image file
+            // unlink($imagePath);
+            return $outputPath;
+        } catch (\Exception $e) {
+            // Handle any exceptions
+            Log::error('Image conversion error: ' . $e->getMessage());
+            return null;
+        }
+    }
 
-    // public function uploadOne(UploadedFile $uploadedFile, $folder = null, $disk = 'public'){
-    //     // Generate a unique name for the image
-    //     $filetype   =  $uploadedFile->getMimeType();
-    //     $file_name  =  strtoupper(uniqid()) .'.'.$uploadedFile->getClientOriginalExtension();
-    //     $filepath   =  $uploadedFile->storeAs($folder,$file_name, $disk);
-    //     $filePathOnly = $folder;
-
-    //     // Get the path where you want to save the image and thumbnail
-    //     $directory = public_path('uploads/thumbnail');
-
-    //     // Check if the directory exists, if not, create it
-    //     if (!File::exists($directory)) {
-    //         File::makeDirectory($directory, 0755, true, true);
-    //     }
-    //     // Generate a thumbnail and save it to the specified directory
-    //     $thumbnailName = 'thumb_' . $file_name;
-    //     Image::make($uploadedFile)->fit(100, 100)->save($directory.'/'.$thumbnailName);
-
-    //     return [
-    //         'file_name' => $file_name,
-    //         'thumbnail_name' => $thumbnailName,
-    //         'filepath' => $filePathOnly, // This will contain the path relative to the storage disk
-    //         'filetype' => $filetype,
-    //     ];
-    // }
 
 }

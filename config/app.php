@@ -165,6 +165,7 @@ return [
         /*
          * Application Service Providers...
          */
+        Rap2hpoutre\LaravelLogViewer\LaravelLogViewerServiceProvider::class,
         Spatie\Permission\PermissionServiceProvider::class,
         Jorenvh\Share\Providers\ShareServiceProvider::class,
         Kudashevs\ShareButtons\Providers\ShareButtonsServiceProvider::class,

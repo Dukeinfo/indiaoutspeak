@@ -44,6 +44,7 @@ use App\Livewire\Frontend\Innerpage\ViewInnerPage;
 use Illuminate\Support\Facades\Route;
 use Livewire\Livewire;
 use Spatie\Browsershot\Browsershot;
+use Illuminate\Support\Facades\Artisan;
 
 /*
 |--------------------------------------------------------------------------
@@ -56,6 +57,13 @@ use Spatie\Browsershot\Browsershot;
 |      "masbug/flysystem-google-drive-ext": "^2.2",
 */
 // Route::get('lang/change', [LanguageController::class, 'change'])->name('changeLang');
+Route::get('/optimize', function() {
+    Artisan::call('optimize:clear');
+    return redirect()->route('home.homepage')->with('success' ,'site optimize successfull');
+        // return "optimize is cleared";
+    
+    });
+
 
 Route::controller(LanguageController::class)->group(function () {
     Route::get('/language/english',  'english')->name('english.language');
@@ -101,6 +109,8 @@ Route::middleware([
 });
 
 Route::group(['middleware' =>   ['auth']], function () {
+Route::get('logs', [\Rap2hpoutre\LaravelLogViewer\LogViewerController::class, 'index']);
+
     Route::post('/store-token', [FirebasePushController::class, 'updateDeviceToken'])->name('store.token');
     Route::post('/send-web-notification', [FirebasePushController::class, 'sendNotification'])->name('send.web-notification');
 
