@@ -61,8 +61,7 @@ Route::get('/optimize', function() {
     Artisan::call('optimize:clear');
     return redirect()->route('home.homepage')->with('success' ,'site optimize successfull');
         // return "optimize is cleared";
-    
-    });
+    })->name('optimizeSite');
 
 
 Route::controller(LanguageController::class)->group(function () {
