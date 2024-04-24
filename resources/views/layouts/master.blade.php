@@ -130,6 +130,7 @@
 <script>
     const vapidPublicKey = "{{env('VAPID_PUBLIC_KEY')}}";
     // Check if the browser supports service workers and notifications
+    @if (Route::currentRouteName() === 'home.homepage')
     if ('serviceWorker' in navigator && 'Notification' in window) {
         navigator.serviceWorker.register("sw.js").then(() => {
             // Check if the user is already subscribed
@@ -147,7 +148,7 @@
     } else {
         console.error('Service Worker or Notification API is not supported.');
     }
-
+    @endif
     // Event listener for subscribe button inside the modal
     document.getElementById('subscribeBtn').addEventListener('click', function () {
         requestPermission();
