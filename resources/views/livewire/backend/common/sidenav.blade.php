@@ -33,8 +33,8 @@
 
 			<li>
 				<a href="{{route('optimizeSite')}}" target="_blank" class="waves-effect"> 
-				   <i class='bx bx-globe'></i>
-				   <span>Optimize</span>
+				   <i class='bx bx-health'></i>
+				   <span>Optimize <span class="badge bg-danger">New</span></span>
 			   </a>
 			   
 		   </li>
