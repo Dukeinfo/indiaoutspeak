@@ -155,19 +155,20 @@ use Illuminate\Support\Str;
          
 
                 <!-- Tag -->
+                  @if(isset($getNewsDetail->pdf_file))
+                <!-- Tag -->
                 <div class="flex-s-s p-t-12 p-b-15">
                     <span class="f1-s-12 cl5 m-r-8">
-                        Tags:
+                       PDF 
                     </span>
 
                     <div class="flex-wr-s-s size-w-0">
-                   
-
-                        <a href="#" class="f1-s-12 cl8 hov-link1 m-r-15">
-                            indiaoutspeak
+                        <a href=" {{ get_pdfFile($getNewsDetail->pdf_file) ?? ''}}" target="_blank" class="f1-s-12 cl8 hov-link1 m-r-15">
+                                {{$getNewsDetail->caption ?? ''}}
                         </a>
                     </div>
                 </div>
+                @endif
 
                 <!-- Share -->
                 <div class="flex-s-s">

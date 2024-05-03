@@ -275,3 +275,11 @@ function translateText($text, $targetLanguage)
             }
             return $string;
         }
+
+
+        
+function get_pdfFile($pdf)
+{
+ 
+    return   asset('storage/pdf_docs/'.$pdf);
+}
