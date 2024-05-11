@@ -95,7 +95,7 @@
                                                 -
                                             </span>
                                             <span class="f1-s-3">
-                                                {{carbon\Carbon::parse($hintopNews->post_date)->format('M d, Y')}}
+                                                {{carbon\Carbon::parse($hintopNews->created_at)->format('M d, Y')}}
 
                                             </span>
                                         </span>
@@ -163,7 +163,7 @@
                                                     -
                                                 </span>
                                                 <span class="f1-s-3">
-                                                    {{carbon\Carbon::parse($hintopNews->post_date)->format('M d, Y')}}
+                                                    {{carbon\Carbon::parse($hintopNews->created_at)->format('M d, Y')}}
                                                 </span>
                                             </span>
                                         </div>

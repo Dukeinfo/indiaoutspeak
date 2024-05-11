@@ -148,6 +148,10 @@ use Illuminate\Support\Str;
                     <img src="{{isset($getNewsDetail->image)? getNewsImage($getNewsDetail->image)  : asset('assets/images/blog-list-04.jpg')}}" class="rounded img-fluid" alt="IMG" loading="lazy">
                 </div>
 
+                <p class="f1-s-13 cl6">
+                    {!! $getNewsDetail->heading ?? "NA"!!}
+                </p>
+
                 <p class="f1-s-13 cl6 p-b-25">
                     {!! $getNewsDetail->news_description ?? "NA"!!}
                 </p>

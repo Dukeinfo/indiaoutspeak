@@ -9,7 +9,6 @@
                 <a href="{{ route('punjabi.language') }}" class="left-topbar-item btn btn-primary ml-2">
                     Punjabi
                 </a>
-                {{-- <button onclick="requestPermission()" type="button" class="btn-flat left-topbar-item btn btn-danger ml-2">Allow notification --}}
             </button>
                 <span class="left-topbar-item flex-wr-s-c">
                     <span class="mr-2">
@@ -61,9 +60,7 @@
                 </a> 
                 @empty
                 @endforelse
-                {{-- <a href="javascript:void()">
-                    <span class="fab fa-instagram"></span>
-                </a>  --}}
+
             </div>
         </div>
     </div>
@@ -71,7 +68,9 @@
     <div class="wrap-header-mobile">
         <!-- Logo moblie -->
         <div class="logo-mobile">
-            <a href="{{url('/')}}"><img src="{{asset('/public/assets/images/logo.png')}}" alt="IMG-LOGO"></a>
+            {{-- <a href="{{url('/')}}"><img src="{{asset('/public/assets/images/logo.png')}}" alt="IMG-LOGO"></a> --}}
+            <a href="{{url('/')}}"><img src="{{ isset($siteSetting->top_logo) ? getSiteLogos($siteSetting->top_logo) :  asset('/public/assets/images/logo.png')}}" alt="IMG-LOGO">
+            </a>
         </div>
         <!-- Button show menu -->
         <div class="btn-show-menu-mobile hamburger hamburger--squeeze m-r--8">
@@ -84,18 +83,14 @@
     <div class="menu-mobile">
         <ul class="topbar-mobile">
             <li class="left-topbar">
-                {{-- <a href="https://www.khabarwale.in/"  class="left-topbar-item btn btn-primary">
-                    Hindi 
-                </a> --}}
+               
                 <a href="{{ route('hindi.language') }}" class="left-topbar-item btn btn-primary ml-2">
                     Hindi
                 </a>
                 <a href="{{ route('punjabi.language') }}" class="left-topbar-item btn btn-primary ml-2">
                     Punjabi
                 </a>
-                {{-- <button  onclick="requestPermission()" type="button" class="left-topbar-item btn btn-danger ml-2">
-                    Allow notification
-                </button> --}}
+
                 <span class="left-topbar-item flex-wr-s-c">
                     <span class="mr-2">
                         @if (session()->get('language') === 'hindi')
@@ -175,7 +170,9 @@
     <div class="wrap-logo no-banner container">
         <!-- Logo desktop -->
         <div class="logo px-5">
-            <a href="{{url('/')}}" ><img src="{{asset('/public/assets/images/logo.png')}}" alt="LOGO"></a>
+            {{-- <a href="{{url('/')}}" ><img src="{{asset('/public/assets/images/logo.png')}}" alt="LOGO"></a> --}}
+            <a href="{{url('/')}}"><img src="{{ isset($siteSetting->top_logo) ? getSiteLogos($siteSetting->top_logo) :  asset('/public/assets/images/logo.png')}}" alt="IMG-LOGO">
+
         </div>
     </div>
     <!-- Desktop -->
@@ -183,9 +180,10 @@
         <div class="main-nav">
             <!-- Menu desktop -->
             <nav class="menu-desktop">
-                <a class="logo-stick" href="{{url('/')}}" >
+                {{-- <a class="logo-stick" href="{{url('/')}}" >
                     <img src="{{asset('assets/images/logo.png')}}" alt="LOGO">
-                </a>
+                </a> --}}
+                <a href="{{url('/')}}"><img src="{{ isset($siteSetting->top_logo) ? getSiteLogos($siteSetting->top_logo) :  asset('/public/assets/images/logo.png')}}" alt="IMG-LOGO">
                 <ul class="main-menu justify-content-center">
                     @forelse ($getMenus as $key => $menu )
                         @if($menu->sort_id == 1) 

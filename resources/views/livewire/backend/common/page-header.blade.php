@@ -170,7 +170,7 @@
 				{{-- manage_contact_us --}}
 				@role('admin')  
 				@if(auth()->user()->can('manage_contact_us') )
-				<a class="dropdown-item" href="{{route('contact_view')}}"><i class="bx bx-wallet font-size-16 align-middle me-1"></i> <span key="t-my-wallet">Contact us</span></a>
+				<a class="dropdown-item" href="{{route('contact_view')}}"><i class="bx bx-wallet font-size-16 align-middle me-1"></i> <span key="t-my-wallet">Site Settings</span></a>
 				@endif
 				@if(auth()->user()->can('manage_social_app') )
 				<a class="dropdown-item d-block" href="{{route('social_view')}}"><span class="badge bg-success float-end">11</span><i class="bx bx-wrench font-size-16 align-middle me-1"></i> <span key="t-settings"> Social App</span></a>

@@ -9,7 +9,7 @@
             <div class="col-lg-4 p-b-20">
                 <div class="size-h-3 flex-s-c">
                     <a href="{{url('/')}}">
-                        <img class="max-s-full" src="{{ isset($getFooteraddress->footer_logo) ? asset('storage/' . $getFooteraddress->footer_logo) :  asset('assets/images/logo-white.png')}}" alt="LOGO">
+                        <img class="max-s-full" src="{{ isset($getFooteraddress->footer_logo) ? getSiteLogos($getFooteraddress->footer_logo) :  asset('assets/images/logo-white.png')}}" alt="LOGO">
                     </a>
                 </div>
                 <div>
@@ -72,39 +72,48 @@
 
                 @if (session()->get('language') === 'hindi')
                 <p class="mb-3"><i class="fa fa-map-marker-alt fa-fw mr-2"></i> 
-                    {!! $getFooteraddress->address ??  'Address'!!}
+                     
+                     {!! $getFooteraddress->address ??  'NA'!!}
+                     {!! $getFooteraddress->zip_code ??  ''!!}
 
                     </p>
                @elseif (session()->get('language') === 'english')
                     <p class="mb-3"><i class="fa fa-map-marker-alt fa-fw mr-2"></i> 
-                        {!! $getFooteraddress->address ??  'Address'!!}
+                        {!! $getFooteraddress->address ??  'NA'!!}
+                          {!! $getFooteraddress->zip_code ??  ''!!}
 
                     </p>
                 @elseif (session()->get('language') === 'punjabi')
                 <p class="mb-3"><i class="fa fa-map-marker-alt fa-fw mr-2"></i> 
 
-                    
-                    {!! $getFooteraddress->address ??  'Address'!!}
+                     
+                    {!! $getFooteraddress->address ??  'NA'!!}
+                    {!! $getFooteraddress->zip_code ??  ''!!}
 
+                     
                 </p>
                @elseif (session()->get('language') === 'urdu')
                <p class="mb-3"><i class="fa fa-map-marker-alt fa-fw mr-2"></i> 
+                {!! $getFooteraddress->address ??  'NA'!!}
+                {!! $getFooteraddress->zip_code ??  ''!!}
 
-                {!! $getFooteraddress->address ??  'Address'!!}
+                    
                </p>                    
                @endif
                   
                     <p class="mb-3"><i class="fa fa-envelope fa-fw mr-2"></i> 
-                        <a href="mailto:{!! $getFooteraddress->email ??  'indiaoutspeak@gmail.com'!!}" 
-                         class="cl11 hov-cl10 trans-03"> {!! $getFooteraddress->email ??  'indiaoutspeak@gmail.com'!!}</a>
+                        <a href="mailto:{!! $getFooteraddress->email ??  ''!!}" 
+                         class="cl11 hov-cl10 trans-03"> {!! $getFooteraddress->email ??  ''!!}</a>
                     </p>
                     <p class="mb-3"><i class="fa fa-mobile-alt fa-fw mr-2"></i>
-                        <a href="tel:{{ $getFooteraddress->phone ?? '+91-9815481679' }}" class="cl11 hov-cl10 trans-03">{{ $getFooteraddress->phone ?? '+91-9815481679' }}</a>
+                        <a href="tel:{{ $getFooteraddress->phone ?? 'NA' }}" class="cl11 hov-cl10 trans-03">{{ $getFooteraddress->phone ?? 'NA' }}</a>
+                        <a href="tel:{{ $getFooteraddress->alternate_phone ?? '' }}" class="cl11 hov-cl10 trans-03">{{ $getFooteraddress->alternate_phone ?? '' }}</a>
+
 
                         </p>
                     <p class="mb-3"><i class="fa fa-globe fa-fw mr-2"></i> 
-                        <a href="{!! $getFooteraddress->website ??  'www.indiaoutspeak.com'!!}" 
-                         class="cl11 hov-cl10 trans-03">{!! $getFooteraddress->website ??  'www.indiaoutspeak.com'!!}</a></p>
+                        <a href="{!! $getFooteraddress->website ??  'NA'!!}" 
+                         class="cl11 hov-cl10 trans-03">{!! $getFooteraddress->website ??  ''!!}</a></p>
                 </address>
 
                 <div class="size-h-3 flex-s-c">
@@ -122,8 +131,11 @@
                     </h5>
                 </div>
                 <div>
-                    <a href="javascript:void();">
-                        <img src="{{asset('assets')}}/images/app-logo.png" class="img-fluid" width="180" alt="">
+                    <a href="{!! $getFooteraddress->Mobile_ios_link ??  ' javascript:void();'!!}"> 
+                        <img src="{{ isset($getFooteraddress->Mobile_ios) ? getSiteLogos($getFooteraddress->Mobile_ios) :  asset('assets/images/app-logo.png')}}" class="img-fluid" width="180" alt="">
+                    </a>
+                    <a href="{!! $getFooteraddress->Mobile_android_link ??  ' javascript:void();'!!}">
+                        <img src="{{ isset($getFooteraddress->Mobile_android) ? getSiteLogos($getFooteraddress->Mobile_android) :  asset('assets/images/apple-app.png')}}" class="img-fluid" width="180" alt="">
                     </a>
                 </div>
 
@@ -215,10 +227,13 @@
                 <span class="f1-s-1 cl0 txt-center">
                     Copyright &copy;<script>
                         document.write(new Date().getFullYear());
-                    </script> All rights reserved
-                    Maintained & Developed By:
+                    </script> 
+                    {{-- All rights reserved
+                    Maintained & Developed By: --}}
+                    {!! $getFooteraddress->copyright ??  'NA'!!}
                     <a href="https://www.dukeinfosys.com" class="f1-s-1 cl10 hov-link1">
-                                Duke Infosys
+                                {{-- Duke Infosys --}}
+                     {!! $getFooteraddress->designed_by ??  'NA'!!}
                     </a>
                 </span>
             </div>

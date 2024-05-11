@@ -283,3 +283,7 @@ function get_pdfFile($pdf)
  
     return   asset('storage/pdf_docs/'.$pdf);
 }
+
+function  getSiteLogos($image){
+    return   asset('storage/logos/'.$image);
+}

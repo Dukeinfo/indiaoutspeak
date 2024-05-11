@@ -140,4 +140,19 @@ trait UploadTrait
     }
 
 
+    public function unlinkImage($model, $imageField = 'image', $folder)
+    
+    {
+        $imagePath = Storage::path('public/' . $folder . '/' . $model->$imageField);
+        if (File::exists($imagePath) && isset($model->$imageField)) {
+            unlink($imagePath);
+            Log::info('Page  Image Deleted');
+        }
+        $thumbnailpath = Storage::path('public/' . $folder . '/' . 'thumb_'.$model->$imageField);
+        if (File::exists($thumbnailpath) && isset($model->$imageField)) {
+            unlink($thumbnailpath);
+            Log::info('thumbnail Image Deleted');
+        }
+    
+    }
 }
