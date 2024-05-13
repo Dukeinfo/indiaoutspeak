@@ -1,5 +1,9 @@
 <div class="navbar-header">
 	<div class="d-flex">
+		@php
+		$siteSetting = DB::table('contact_infos')->where('deleted_at',Null)->first();
+		
+		@endphp
 		<!-- LOGO -->
 		<div class="navbar-brand-box text-start">
 			<a href="{{route('admin_dashboard')}}" class="logo logo-dark">
@@ -13,10 +17,11 @@
 
 			<a href="{{route('admin_dashboard')}}" class="logo logo-light">
 				<span class="logo-sm">
-					<img src="{{asset('admin_assets/images/crest.png')}}" alt="" height="22">
+					
+					<img src="{{ isset($siteSetting->admin_panel_logo) ? getSiteLogos($siteSetting->admin_panel_logo) :  asset('admin_assets/images/logo.png')}}" alt="" height="22">
 				</span>
 				<span class="logo-lg">
-					<img src="{{asset('assets/images/logo-white.png')}}" alt="" height="50">
+					<img src="{{ isset($siteSetting->admin_panel_logo) ? getSiteLogos($siteSetting->admin_panel_logo) :  asset('admin_assets/images/logo.png')}}" alt="" height="50">
 				</span>
 			</a>
 		</div>
