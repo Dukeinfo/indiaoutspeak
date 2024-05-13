@@ -183,7 +183,8 @@
                 {{-- <a class="logo-stick" href="{{url('/')}}" >
                     <img src="{{asset('assets/images/logo.png')}}" alt="LOGO">
                 </a> --}}
-                <a href="{{url('/')}}"><img src="{{ isset($siteSetting->top_logo) ? getSiteLogos($siteSetting->top_logo) :  asset('/public/assets/images/logo.png')}}" alt="IMG-LOGO">
+                <a href="{{url('/')}}" lass="logo-stick" >
+                    <img src="{{ isset($siteSetting->top_logo) ? getSiteLogos($siteSetting->top_logo) :  asset('/public/assets/images/logo.png')}}" alt="IMG-LOGO"> </a>
                 <ul class="main-menu justify-content-center">
                     @forelse ($getMenus as $key => $menu )
                         @if($menu->sort_id == 1) 
