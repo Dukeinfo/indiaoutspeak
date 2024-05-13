@@ -41,7 +41,7 @@
 
                                     <div class="row">
                           
-                                        <div class="col-md-4">
+                                        <div class="col-md-6">
                                         <div class="mb-3">
                                             <label for="video_title" class="form-label">Video Title</label>
                                             <input type="text" class="form-control" id="video_title" wire:model="video_title_en" placeholder="Video Title">
@@ -49,14 +49,7 @@
                                        
                                         </div>
                                         </div>
-                                        <div class="col-md-4">
-                                        <div class="mb-3">
-                                            <label for="video_url" class="form-label">Video URL</label>
-                                            <input type="text" class="form-control" id="video_url" wire:model="video_url" placeholder="https://example.com">
-                                            @error('video_url') <span class="error">{{ $message }}</span> @enderror
-                                        
-                                        </div>
-                                        </div>
+                                   
                                         {{-- <div class="col-md-4">
                                             <div class="mb-3">
                                                 <label for="editvideo_image" class="form-label">Video Image </label>
@@ -65,7 +58,7 @@
 
                                             </div>
                                         </div> --}}
-                                        <div class="col-md-4">
+                                        <div class="col-md-6">
                                         <div class="mb-3">
                                             <label for="post_date" class="form-label">Post Date</label>
                                             <input type="date" min="{{ Carbon\Carbon::now()->format('Y-m-d') }}" class="form-control" id="post_date" wire:model="post_date">
@@ -73,7 +66,14 @@
                                         
                                         </div>
                                         </div>
-
+                                        <div class="col-md-12">
+                                            <div class="mb-3">
+                                                <label for="video_url" class="form-label">Video URL</label>
+                                                <input type="text" class="form-control" id="video_url" wire:model="video_url" placeholder="https://example.com">
+                                                @error('video_url') <span class="error">{{ $message }}</span> @enderror
+                                            
+                                            </div>
+                                            </div>
                                         {{-- <div class="col-md-4">
                                             <label for="sort_id">Sort ID</label>
                                             <input wire:model="sort_id" type="number" placeholder="sort no" class="form-control" id="sort_id" placeholder="VSort no">

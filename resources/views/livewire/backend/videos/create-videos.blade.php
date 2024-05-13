@@ -38,10 +38,9 @@
                               
                                 <form wire:submit.prevent="CreateVideo">
                                         
-
                                     <div class="row">
                           
-                                        <div class="col-md-4">
+                                        <div class="col-md-6">
                                         <div class="mb-3">
                                             <label for="video_title" class="form-label">Video Title</label>
                                             <input type="text" class="form-control" id="video_title" wire:model="video_title_en" placeholder="Video Title">
@@ -49,23 +48,9 @@
                                        
                                         </div>
                                         </div>
-                                        <div class="col-md-4">
-                                        <div class="mb-3">
-                                            <label for="video_url" class="form-label">Video embed code </label>
-                                            <input type="text" class="form-control" id="video_url" wire:model="video_url" placeholder=" https://www.youtube.com/embed/=> xWwFbMnlZU0">
-                                            @error('video_url') <span class="error">{{ $message }}</span> @enderror
-                                        
-                                        </div>
-                                        </div>
-                                        {{-- <div class="col-md-4">
-                                            <div class="mb-3">
-                                                <label for="video_image" class="form-label">Video Image </label>
-                                                <input type="file" class="form-control" id="video_image" wire:model="video_image">
-                                                @error('video_image') <span class="error">{{ $message }}</span> @enderror
-
-                                            </div>
-                                        </div> --}}
-                                        <div class="col-md-4">
+                               
+                    
+                                        <div class="col-md-6">
                                         <div class="mb-3">
                                             <label for="post_date" class="form-label">Post Date</label>
                                             <input type="date" min="{{ Carbon\Carbon::now()->format('Y-m-d') }}" class="form-control" id="post_date" wire:model="post_date">
@@ -74,25 +59,15 @@
                                         </div>
                                         </div>
 
-                                        {{-- <div class="col-md-4">
-                                            <label for="sort_id">Sort ID</label>
-                                            <input wire:model="sort_id" type="number" placeholder="sort no" class="form-control" id="sort_id" placeholder="VSort no">
-                                            @error('sort_id') <span class="error">{{ $message }}</span> @enderror
-                                      
-                                        </div> --}}
-                                    
-                                        {{-- <div class="col-md-4">
-                                            <label for="status">Status</label>
-                                            <select wire:model="status" class="form-select">
-                                                <option value="">Select</option>
-                                                <option value="Active">Active</option>
-                                                <option value="Inactive">Inactive </option>
-                                           </select>
-                                           @error('status') <span class="error">{{ $message }}</span> @enderror
-
-                                        </div> --}}
+                                        <div class="col-md-12">
+                                            <div class="mb-3">
+                                                <label for="video_url" class="form-label">Video embed code </label>
+                                                <input type="text" class="form-control" id="video_url" wire:model="video_url" placeholder=" https://www.youtube.com/embed/=> xWwFbMnlZU0">
+                                                @error('video_url') <span class="error">{{ $message }}</span> @enderror
+                                            
+                                            </div>
+                                        </div>
                                     </div>
-                                
                            
                               
                                 
@@ -175,7 +150,7 @@
 
                                             </td>
                                             {{-- https://www.youtube.com/embed/{{$livetvnews->video_url}}?rel=0 --}}   
-                                                <td> <a href="https://www.youtube.com/embed/{{$record->video_url ?? '#'}}" target="_blank" title="{{$record->video_url }}"> {{  Str::limit($record->video_title_en, 40) ?? "NA"}}</a> </td>
+                                            <td> <a href="https://www.youtube.com/embed/{{$record->video_url ?? '#'}}" target="_blank" title="{{$record->video_url }}"> {{  Str::limit($record->video_url, 40) ?? "NA"}}</a> </td>
                                                 <td> 
                                                     {{ \Carbon\Carbon::parse($record->post_date )->format('d-M-y') ?? ''}} <br>
                                                     {{ $record->created_at->diffForHumans() ?? ''}}
