@@ -27,6 +27,7 @@
     <link rel="mask-icon" href="{{asset('/public/assets/images/icons/safari-pinned-tab.svg')}}" color="#5bbad5">
     <meta name="msapplication-TileColor" content="#ffc40d">
     <meta name="theme-color" content="#ffffff">
+    <link rel="canonical" href="{{ url()->current() }}" />
     <link rel="stylesheet" type="text/css" href="{{asset('/public/assets/vendor/bootstrap/css/bootstrap.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('/public/assets/fonts/fontawesome-5.0.8/css/fontawesome-all.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('/public/assets/fonts/iconic/css/material-design-iconic-font.min.css')}}">
