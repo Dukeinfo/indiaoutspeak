@@ -90,8 +90,8 @@
                                             <!-- Category ID -->
                                             <div class="form-group">
                                                 <label for="category_id">Categories</label>
-                                                <select name="category_id[]" wire:model="category_id" id="category_id" class="form-control selectpicker" multiple data-live-search="true">
-                                                    <option value="">Select types</option>
+                                                <select  wire:model="category_id" id="category_id" class="form-control" multiple >
+                                                    <option value="" disabled class="bg-secondary text-light">Select types</option>
                                                     @forelse ($getCategory as $category)
                                                         @if ($category->id != 1 || $category->sort_id != 1)
                                                             <option value="{{ $category->id }}">{{ $category->category_en }}</option>

@@ -166,6 +166,7 @@ class CreateNews extends Component
     }
     public $newsSlug;
     public function createNews(){
+     
         $this->validate();
         // dd(createSlug($this->title) );
         $this->newsSlug =    translateAndSlug($this->title);
